@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}Liste des souhaits{% endblock %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('css/listCss.css') }}">
+    <ul>
+        {% for wish in wishes %}
+            <a href="{{ path('detail_wish', {'id': wish.id}) }}"><li class="list_wish">{{ wish.title }} - <span id="cat">{{ wish.categorie.nom }}</span></li></a>
+        {% endfor %}
+    </ul>
+{% endblock %}
